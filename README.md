@@ -1,5 +1,5 @@
 # LinkedU
-Hello all,
+Semester project of IT353
 
 The primary purpose of the Web-based application is to develop “LinkedIn app for high school going student to link to universities and peers”. Through this app, they can search and apply to colleges, can contact recruiters assocated with colleges and can contact the peers. 
 
