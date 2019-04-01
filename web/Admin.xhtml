@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Admin Home Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+            header
+{ 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    background-color: #d9edf7;
+    display: grid;
+    color:#31708F;
+
+}
+        </style>
+
+    </h:head>
+    <h:body>
+        <h:form>
+             <header>
+                 <h:commandButton style="float:right; width: 10%" id="logOut" class="btn btn-primary" action="logOut.xhtml?faces-redirect=true" value="Log Out" ></h:commandButton>
+            </header>
+     
+            
+<br/>
+<br/>
+            <div class="container" style="margin-top:10px;">
+                <div class="text-center">
+                    <h3 style="color:blue">Admin Home Page</h3>
+                </div><br/>
+                <div class="jumbotron" style="height: 70%; width: 50%; float: left;">
+                    <div class="form-group">
+                        <label style="color:brown">University List: </label>
+                    </div>
+                    <h:selectManyCheckbox layout="pageDirection" id="universitiesID" value="#{adminController.universityBean.universityName}" >       
+                        <f:selectItem id="IllinoisStateUniversity" itemLabel=" &nbsp; Illinois State University" itemValue="Illinois State University" />  
+
+                        <f:selectItem id="UniversityofIllinoisatChicago" itemLabel=" &nbsp; University of Illinois Chicago" itemValue="University of Illinois Chicago" />   
+
+                        <f:selectItem id="HarvardUniversity" itemLabel="&nbsp; Harvard University" itemValue="Harvard University" />
+
+                        <f:selectItem id="PrincetonUniversity" itemLabel="&nbsp; Princeton University" itemValue="Princeton University" />
+
+                        <f:selectItem id="UniversityofIllinoisatUrbana-Champaign" itemLabel="&nbsp; University of Illinois at Urbana-Champaign" itemValue="University of Illinois at Urbana-Champaign" />
+
+                        <f:selectItem id="YaleUniversity" itemLabel="&nbsp; Yale University" itemValue="Yale University" />
+
+                        <f:selectItem id="UniversityofChicago" itemLabel="&nbsp; University of Chicago" itemValue="University of Chicago" />
+
+                        <f:selectItem id="ColumbiaUniversity" itemLabel="&nbsp; Columbia University" itemValue="Columbia University" />
+
+                        <f:selectItem id="StanfordUniversity" itemLabel="&nbsp; Stanford University" itemValue="Stanford University" />
+
+                        <f:selectItem id="DukeUniversity" itemLabel="&nbsp; Duke University" itemValue="Duke University" />
+
+
+                    </h:selectManyCheckbox><br/>
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12">
+                            <h:commandButton id="submitID" class="btn btn-primary" value="Showcase University" action="#{adminController.showcaseUniversities()}"/> 
+                            &nbsp; <h:commandButton id="unShowcase" class="btn btn-primary" value="UnShowcase University" action="#{adminController.unShowcaseUniversities()}"/>
+                        </div>
+                    </div>
+                    <br/> <br/>
+                    <h:outputText id="result" style="color:green;" value="#{adminController.response}"/>         
+                </div>
+                
+                
+                <div class="jumbotron" style=" float: right;"> 
+                    <table>
+                        <tr>
+                            <td valign="top">News Letter :</td>
+                            <td><h:inputTextarea value="#{adminController.universityBean.adminMessage}" cols="30" rows="5" /></td>
+                        </tr> 
+                    </table>
+                    <br/>
+                    <h:commandButton value="Submit" style="width: 50%; margin: 0 auto;" class="btn btn-primary" action="#{adminController.emailSubscription}" />
+                    <br/> <br/>
+                    <h:outputText id="resultEmail" style="color:green;" value="#{adminController.responseEmail}"/>         
+             
+                </div>
+            </div>
+
+        </h:form>
+    </h:body>
+</html>

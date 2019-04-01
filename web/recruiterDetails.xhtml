@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title></title>
+        <h:outputStylesheet library="css" name="signup.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+            .centered-form{
+                margin-top: 60px;
+            }
+
+            .centered-form .panel{
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Additional Information</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h:form role="form">
+                                <p:messages id="messages" showDetail="true" autoUpdate="true" />  <br/>  
+                                <div class="form-group">
+                                    <h:inputText id="universityName"  value="#{recruiterController.recruiterModel.university}" requiredMessage="Please enter University Name" class="form-control input-sm" pt:placeholder="Enter University Name" required="true">
+                                    </h:inputText>   
+                                    <h:message for="universityName" style="color:red" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <h:inputText id="departmentName" value="#{recruiterController.recruiterModel.department}" requiredMessage="Please enter Department Name" class="form-control input-sm" pt:placeholder="Enter Department Name" required="true">
+                                    </h:inputText>   
+                                    <h:message for="departmentName" style="color:red" />
+                                </div>
+                                <div class="form-group">
+                                    <h:inputText id="number" requiredMessage="Phone Number" value="#{recruiterController.recruiterModel.phone}" class="form-control input-sm" pt:placeholder="Enter Phone Number" required="true">
+                                    </h:inputText>   
+                                    <h:message for="number" style="color:red" />
+                                </div>
+                                <h:commandButton id="createAccount" style="width: 98%" action="#{signupController.signUp()}" class="btn btn-primary" value="Submit"/>                       
+                            </h:form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

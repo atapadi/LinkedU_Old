@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Profile</title>
+        <h:outputStylesheet library="css" name="profile.css"/>
+        <h:outputScript library="js" name="feed.js"/>
+    </h:head>
+    <h:body>
+        <div class ="grid">
+            <header> <h1>LinkedU</h1>
+                <div class="searchbar">
+                    <span>
+                        <h:form id="SearchForm" >
+                            <p:inputText class="searchInput" value="#{searchController.search}" a:placeholder="Search" ></p:inputText>
+                            <p:commandButton id="searchButton" value="Search" action="#{searchController.searchByName()}"/>
+                        </h:form>
+                    </span>
+                </div>
+            </header>
+            <feed class ="feed-grid">
+                <h:form class="status" enctype="multipart/form-data">
+    
+                    <div class="title">
+                        <h1>Status Update</h1>
+                    </div>
+                    <div class="content"> 
+                        <p:graphicImage value="#{mediaController.image}" height="auto" width="100%"/>
+                        <h:inputText value="#{profileController.postController.postModel.textContent}" a:placeholder="Write something..."></h:inputText>
+                    </div>
+                    <div class="post-button"> 
+                        <h:commandButton value="Post" action="#{profileController.createPost(mediaController.imageId)}"></h:commandButton>
+                    </div> 
+                    <div class="post-button"> 
+                        <h:commandButton value="Upload" action="#{mediaController.uploadPostImage()}"></h:commandButton>
+                    </div>
+                    <p:fileUpload value="#{mediaController.file}" mode="simple" skinSimple="true"/>
+                </h:form>
+              
+                
+            </feed>
+        <aside>
+            <h:form id="sidebar" enctype="multipart/form-data">
+                <div class ="profilepic">
+                    <p:graphicImage value="#{mediaController.getProfileImage()}" height="auto" width="100%" />
+                </div>
+                <div class="sidebar-buttons">
+                    <p:fileUpload value="#{mediaController.file}" mode="simple" skinSimple="true"/>
+                    <h:commandButton class="upload-button" value="Upload" action="#{mediaController.upload()}"></h:commandButton>
+                    <h:commandButton  id="home" class="sidebarbutton" action="signUp?faces-redirect=true" value="Home" ></h:commandButton>
+                    <h:commandButton  id="details" class="sidebarbutton" action="update.xhtml?faces-redirect=true" value="My Details" ></h:commandButton>
+                    <h:commandButton  id="logOut" class="sidebarbutton" action="logOut.xhtml?faces-redirect=true" value="Log Out" ></h:commandButton>
+                </div>
+                <div class="featured">
+                    <b><i>Featured College:
+                        <br/>
+                        Illinois State University
+                    </i></b>
+                    <p:galleria value="#{showcaseUniversityController.images}" var="image" panelWidth="300" panelHeight="200">
+                        <p:graphicImage value="resources/images/#{image}" title="#{image}"/>
+                    </p:galleria>
+                </div>
+            </h:form>
+            </aside>
+            <aside2>
+                <div class="sidebar-2">                   
+                    <h:commandButton class="sidebarbutton" value="Request More Details"> </h:commandButton><br/>
+                    <br/>
+                <h:form>
+                    
+                    <h:commandButton class="sidebarbutton" value="Student Information" action="StudentInfo.xhtml?faces-redirect=true" ></h:commandButton>
+                    <br/><br/>
+                    <h:commandButton class="sidebarbutton" value="Unsubscribe to Email"> </h:commandButton>  
+               <br/> <br/>
+               <h:commandButton class="sidebarbutton" id="unsubscribeEmail" value="Subscribe to Email" > </h:commandButton>  
+                <br/>
+                <h:outputText id="result" style="color:green;"  /> 
+                
+                </h:form>
+                </div>
+            </aside2>
+            <footer>LINKEDU LLC. Created By Eric, Akanksha, Dryden and Ricky</footer>
+        </div>
+    </h:body>
+</html>
+
+

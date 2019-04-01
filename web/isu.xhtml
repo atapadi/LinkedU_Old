@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title></title>
+        <h:outputStylesheet library="css" name="signup.css"/>  
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+            .centered-form{
+                margin-top: 60px;
+            }
+
+            .centered-form .panel{
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+            }
+            header
+            { 
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                top: 0;
+                position: fixed;
+                width: 100%;
+                height: 45px;
+                background-color: #d9edf7;
+                display: grid;
+                color:#31708F;
+
+            }
+        </style>
+    </h:head>
+
+    <h:body >
+        <h:form>
+            <header>
+                <h:commandButton style="float:right; width: 10%" id="logOut" class="btn btn-primary" action="profilestandard.xhtml?faces-redirect=true" value="Back" ></h:commandButton>
+            </header>
+
+            <br/>
+            <br/>
+        </h:form>
+
+        <div class="container">
+            <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><b><center>Illinois State University<a href="https://illinoisstate.edu/">About</a></center></b></h3>
+                        </div>
+                        <div class="panel-body">
+                            <h:form role="form">
+                                <center><h:graphicImage value="resources/images/ISU1.jpg" style="max-width: 100px; max-height: 100px"/></center>
+                                <p style="text-align: center; font-size: 30px">Anything but Normal</p>
+                                <p style="text-align: center; font-size: 20px">A great college town that can also jump-start your career - 
+                                    <br/>that's Bloomington-Normal.</p>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <h:outputLabel id="info" value="Schedule a visit"/>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <p:calendar id="event" value="#{calendarView.date}" mindate="#{calendarView.currentDate}">
+                                            <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs"/>
+                                        </p:calendar>
+                                    </div>
+                                    <br/><br/>
+                                    <p><h:outputText id="msgs" value="#{calendarView.message}"></h:outputText></p>
+                                    <br/>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <h:commandButton id="applyAdmission" style="width: 98%" class="btn btn-primary" value="Apply for Admission" action="#{updateController.applyAdmission()}"/>                                        
+                                    </div>
+                                    <br/><br/>
+                                    <p><h:outputText style="color: green;" id="msg" value="#{updateController.admissionMessage}"></h:outputText></p>
+                                    <br/>
+
+                                </div>
+
+
+                            </h:form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

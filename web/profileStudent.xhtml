@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Profile</title>
+        <h:outputStylesheet library="css" name="profile.css"/>
+    </h:head>
+    <h:body>
+        <div class ="grid">
+            <header> <h1>LinkedU</h1>
+                <div class="searchbar">
+                    <span>
+                        <h:form id="SearchForm" >
+                            <p:inputText class="searchInput" value="#{searchController.search}" a:placeholder="Search" ></p:inputText>
+                            <p:commandButton id="searchButton" value="Search" action="#{searchController.searchByName()}"/>
+                        </h:form>
+                    </span>
+                </div>
+            </header>
+            <feed class ="feed-grid">
+                <h:form class="status">
+                    <div class="title">
+                        <h1>Status Update</h1>
+                    </div>
+                    <div class="content"> 
+                        <h:graphicImage/>
+                        <h:inputText id="postContents" value="#{profileController.postController.postModel.textContent}" a:placeholder="Status: What are you thinking?"></h:inputText>
+                    </div>
+                    <div class="post-button"> 
+                        <h:commandButton value="Post" action="#{profileController.createPost()}"></h:commandButton>
+                    </div> 
+                    <div class="post-button"> 
+                        <h:commandButton value="Upload"></h:commandButton>
+                    </div>
+                </h:form>
+                <h:dataTable value="#{profileController.getPosts()}" cellspacing="0px" cellpadding="0px" var="post">
+                    <h:column> 
+                        <h:form class="post">
+                            <div class="user">
+                                <div class ="profilepic">
+                                    <center>
+                                        <p:graphicImage value="resources/images/default-profile.png" height="80px" width="80px" />
+                                    </center>
+                                </div>
+                                <center>
+                                    <br/>
+                                    <br/>
+                                    <h:outputText >
+                                    </h:outputText>
+                                    <p><b> Post from (DATE and TIME)</b> </p>
+                                </center>
+                            </div>
+
+                            <div class="content">
+                                <h:graphicImage/>
+                                <h:outputText value="#{post.textContent}"/>
+                            </div>
+                            <div class="like-button">
+                                <h:commandButton value="Like"></h:commandButton>
+                            </div>
+                            <div class="comment-button">
+                                <h:commandButton value="Comment"></h:commandButton>
+                            </div>
+                        </h:form>
+                        <br/><br/>
+                    </h:column>           
+                </h:dataTable>
+            </feed>
+        <aside>
+                <h:form id="sidebar">
+                    <div class ="profilepic">
+                        <center>
+                            <p:graphicImage value="#{mediaController.image}" height="auto" width="100%" />
+                        </center>
+                    </div>
+                    <h:commandButton  id="home" class="sidebarbutton" action="signUp?faces-redirect=true" value="Home" ></h:commandButton>
+                    <br/>
+                    <br/>
+                    <h:commandButton  id="search" class="sidebarbutton" action="searchResults?faces-redirect=true" value="Search" ></h:commandButton>
+                    <br/>
+                    <br/>
+                    <h:commandButton  id="feed" class="sidebarbutton" action="feed?faces-redirect=true" value="Feed" ></h:commandButton>
+                    <br/>
+                    <br/>
+                    <h:commandButton  id="details" class="sidebarbutton" action="update.xhtml?faces-redirect=true" value="My Details" ></h:commandButton>
+                    <br/>
+                    <br/>
+                    <h:commandButton  id="logOut" class="sidebarbutton" action="logOut.xhtml?faces-redirect=true" value="Log Out" ></h:commandButton>
+                    <br/>
+                    <br/>
+                    <b><i>Featured College:
+                            <br/>
+                            Illinois State University
+                        </i></b>
+                    <p:galleria value="#{showcaseUniversityController.images}" var="image" panelWidth="255" panelHeight="180">
+                        <p:graphicImage value="resources/images/#{image}" style=""  title="#{image}"/>
+                    </p:galleria>
+                </h:form>
+            </aside>
+            <aside2>
+                <h3> 
+                <h:outputText value="#{profileController.username}"></h:outputText>
+                's Detailed Info</h3>
+                <br/>
+                <b>Date of Birth:</b>
+                <h:outputText value="#{profileController.DOB}"></h:outputText>
+                <br/>    
+                <b>Height:</b>
+                <h:outputText value="#{profileController.height}"></h:outputText>
+                <br/>
+                <b>Weight:</b>
+                <h:outputText value="#{profileController.weight}"></h:outputText>
+                <br/>
+                <b>Country:</b>
+                <h:outputText value="#{profileController.country}"></h:outputText>
+                <br/>
+                <b>Current School:</b>
+                <h:outputText value="#{profileController.school}"></h:outputText>
+
+                <br/>
+                <b>Graduation Year:</b>
+                <h:outputText value="#{profileController.endYear}"></h:outputText>
+                <br/>
+                <b>SAT:</b>
+                <h:outputText value="#{profileController.sat}"></h:outputText>
+                <br/>
+                <b>ACT:</b>
+                <h:outputText value="#{profileController.act}"></h:outputText>
+                <br/>
+                <b>PSAT:</b>
+                <h:outputText value="#{profileController.psat}"></h:outputText>
+
+                <br/>
+                <b>Certifications:</b>
+                <h:outputText value="#{profileController.certifications}"></h:outputText>
+                <br/>
+                <b>Hobbies:</b>
+                <h:outputText value="#{profileController.hobbies}"></h:outputText>
+                <br/>
+                <br/>
+            </aside2>
+            <footer>LINKEDU LLC. Created By Eric, Akanksha, Dryden and Ricky</footer>
+        </div>
+    </h:body>
+</html>
+
+

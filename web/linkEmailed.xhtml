@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+      <title>Forgot Password</title>
+         <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+             .centered-form{
+                margin-top: 60px;
+            }
+
+            .centered-form .panel{
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <div class="container">
+            <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Reset Password</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h:form role="form">
+                                <div class="form-group">
+                                    <p>The email has been sent to your registered email address.</p>    
+                                </div>
+                                <h:commandButton id="logIn" style="width: 98%" class="btn btn-primary" value="LogIn" action="logIn.xhtml"/> &nbsp;
+        
+                            </h:form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </h:body>
+</html>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title></title>
+        <h:outputStylesheet library="css" name="signup.css"/>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+            .centered-form{
+                margin-top: 60px;
+            }
+
+            .centered-form .panel{
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please sign up for LinkedU</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h:form role="form">
+                                <h5><h:outputText value="#{signupController.signupStatus}" style="color:red" id="signupStatus"/></h5>
+                                <div class="form-group">
+                                    <h:inputText id="username" requiredMessage="Please Enter Username" class="form-control input-sm" pt:placeholder="Enter Username" value="#{signupController.userModel.username}" required="true">
+                                    </h:inputText>   
+                                    <h:message for="username" style="color:red" />
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <h:inputText id="fname" class="form-control input-sm" requiredMessage="Minimum length is 2" pt:placeholder="First Name" value="#{signupController.userModel.firstName}" required="true">
+                                                <f:validateLength minimum="2" />
+                                            </h:inputText>   
+                                             <h:message for="fname"  style="color:red" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <h:inputText pt:placeholder="Last Name" id="lname" class="form-control input-sm" requiredMessage="Minimum length is 2" value="#{signupController.userModel.lastName}" required="true">
+                                                <f:validateLength minimum="2" />
+                                            </h:inputText>
+                                             <h:message for="lname"  style="color:red" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:inputText id="email" class="form-control input-sm" requiredMessage="Email Required" pt:placeholder="Email Address" value="#{signupController.userModel.email}" required="true">
+                                        <f:validateRegex pattern = "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
+                                    </h:inputText>     
+                                     <h:message for="email"  style="color:red" />
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <p:password pt:placeholder="Enter Password" class="form-control input-sm" id="password" value="#{signupController.userModel.password}" 
+                                                    validatorMessage="Password not match"  feedback="true" inline="true" match="confirmpassword" required="true"/>
+                                          <h:message for="password"  style="color:red" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <p:password pt:placeholder="Confirm Password" class="form-control input-sm" id="confirmpassword" 
+                                                        required="true" />
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:selectOneMenu class="form-control input-sm" value="#{signupController.userModel.userType}">
+                                        <f:selectItem itemValue="Student" itemLabel="Student" />
+                                        <f:selectItem itemValue="Recruiter" itemLabel="Recruiter" />
+                                    </h:selectOneMenu>     
+                                </div>
+                                <h:commandButton id="signUp" style="width: 98%" class="btn btn-primary" value="Create Account" action="#{signupController.createUser()}"/> &nbsp;
+                            </h:form>
+                            
+                            <h:form>
+                                  <h:commandButton id="login" style="width: 98%" class="btn btn-primary" value="LogIn" action="logIn.xhtml"/>                       
+                            </h:form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
+
+

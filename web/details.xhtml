@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+        <h:outputStylesheet library="css" name="signup.css"/> 
+         <style>
+            body{
+                background : url('resources/images/ISU.jpg')  no-repeat 0px 0px;
+            }
+         </style>
+    </h:head>
+
+    <h:body>
+        <div class="grid">
+            <header>
+                <h1>LinkedU</h1>
+            </header>
+            <article>
+
+                <h:form style="width: auto">
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                    <p:wizard flowListener="#{studentController.onFlowProcess}">
+
+                        <p:tab id="personal" title="Personal">
+                            <p:panel header="Personal Details" style="width:auto; text-align: center">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value" class="span-full">
+
+                                    <p:outputLabel for="german" value="Date of Birth: " />
+                                    <p:calendar id="german" value="#{signupController.studentModel.dateOfBirth}" locale="de" navigator="true" pattern="yyyy-MM-dd" required="true"/>
+
+                                    <h:outputText value="Height(cm): " />
+                                    <p:inputText value="#{signupController.studentModel.height}" label="height"/>
+
+                                    <h:outputText value="Weight(lbs): " />
+                                    <p:inputText value="#{signupController.studentModel.weight}" />
+
+                                    <h:outputText value="Skip to last: " />
+                                    <h:selectBooleanCheckbox value="#{studentController.skip}" />
+
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="address" title="Address">
+                            <p:panel header="Address Details" style="width:auto; text-align: center">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Street: " />
+                                    <p:inputText value="#{signupController.studentModel.street}" />
+
+                                    <h:outputText value="City: " />
+                                    <p:inputText value="#{signupController.studentModel.city}" />
+
+                                    <h:outputText value="Country: " />
+                                    <p:inputText value="#{signupController.studentModel.country}" />
+
+                                    <h:outputText value="Postal Code: " />
+                                    <p:inputText value="#{signupController.studentModel.zipcode}" />
+
+                                    <h:outputText value="Phone #: " />
+                                    <p:inputText value="#{signupController.studentModel.phone}"/>
+
+                                    <h:outputText value="Skip to last: " />
+                                    <h:selectBooleanCheckbox value="#{studentController.skip}" />
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="education" title="Academics">
+                            <p:panel header="Academics">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value" style="width:auto; text-align: center">
+                                    <h:outputText value="High School *" />
+                                    <p:inputText value="#{signupController.studentModel.school}" required="true" label="HighSchool"/>
+
+                                    <h:outputText value="End Year: " />
+                                    <p:inputText  value="#{signupController.studentModel.endYear}"/>
+
+                                    <h:outputText value="SAT Score " />
+                                    <p:inputText value="#{signupController.studentModel.sat}"/>
+
+                                    <h:outputText value="PSAT Score " />
+                                    <p:inputText value="#{signupController.studentModel.psat}"/>
+
+                                    <h:outputText value="ACT Score " />
+                                    <p:inputText value="#{signupController.studentModel.act}"/>
+
+                                    <h:outputText value="Certifications " />
+                                    <p:inputText value="#{signupController.studentModel.certification}"/>
+
+                                    <h:outputText value="Hobbies " />
+                                    <p:inputText value="#{signupController.studentModel.hobbies}"/>
+
+                                    <h:outputText value="Essay of Choice " />
+                                    <p:inputText value="#{signupController.studentModel.essay}"/>
+
+                                </h:panelGrid>
+
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="confirm" title="Confirmation">
+                            <p:panel header="Confirmation">
+                                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Date_Of_Birth: " />
+                                        <h:outputText value="#{signupController.studentModel.dateOfBirth}" styleClass="outputLabel"/>
+                                              
+                                        <h:outputText value="Height: " />
+                                        <h:outputText value="#{signupController.studentModel.height}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="Weight: " />
+                                        <h:outputText value="#{signupController.studentModel.weight}" styleClass="outputLabel"/>
+                                    </h:panelGrid>
+
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Street: " />
+                                        <h:outputText value="#{signupController.studentModel.street}" styleClass="outputLabel"/>
+                                        
+                                        <h:outputText value="City: " />
+                                        <h:outputText value="#{signupController.studentModel.city}" styleClass="outputLabel"/>
+                                        
+                                        <h:outputText value="Country: " />
+                                        <h:outputText value="#{signupController.studentModel.country}" styleClass="outputLabel"/>
+                                        
+                                        <h:outputText value="Postal_Code: " />
+                                        <h:outputText value="#{signupController.studentModel.zipcode}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="Phone_No: " />
+                                        <h:outputText value="#{signupController.studentModel.phone}" styleClass="outputLabel"/>
+                                    </h:panelGrid>
+
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="School_Name: " />
+                                        <h:outputText value="#{signupController.studentModel.school}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="End_Year: " />
+                                        <h:outputText value="#{signupController.studentModel.endYear}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="SAT_Score: " />
+                                        <h:outputText value="#{signupController.studentModel.sat}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="PSAT_Score: " />
+                                        <h:outputText value="#{signupController.studentModel.psat}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="ACT: " />
+                                        <h:outputText value="#{signupController.studentModel.act}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="Certifications: " />
+                                        <h:outputText value="#{signupController.studentModel.certification}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="Hobbies: " />
+                                        <h:outputText value="#{signupController.studentModel.hobbies}" styleClass="outputLabel"/>
+
+                                        <h:outputText value="Essay_Of_Choice: " />
+                                        <h:outputText value="#{signupController.studentModel.essay}" styleClass="outputLabel"/>
+
+                                </h:panelGrid>
+                                </h:panelGrid>
+
+                                <p:commandButton value="Submit" action="#{signupController.signUp()}" update="growl" process="@this"/>
+                            </p:panel>
+                        </p:tab>
+                    </p:wizard>
+
+                </h:form>
+
+            </article>
+            <aside>Sidebar</aside>
+            <footer>
+                <h1>Footer</h1>
+            </footer>
+        </div> 
+    </h:body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>LinkedU</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8"/>        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link href="resources/css/style.css" rel='stylesheet' type='text/css' />
+        <link href="resources/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <!-- js -->
+        <script src="resources/js/responsiveslides.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="resources/js/bootstrap-3.1.1.min.js"></script>
+
+    </h:head>
+    <h:body>
+        <!--Header-->
+        <div class="top-bar_sub_w3layouts_agile">
+            <div class="header-nav-agileits">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1><a class="navbar-brand" href="#">Linked<b style="color:#2B20C3">U</b></a></h1>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <nav>
+                            <ul class="top_nav">
+                                <li><a href="index.xhtml">Home</a></li>
+                                <li><a href="#" class="active">About</a></li>
+                                <li><a href="contact.xhtml">Contact</a></li>
+                                <li><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="box"><br/>
+            <center><h3>LinkedU, is a web-based "LinkedIn app for high schoolers to link to universities and peers."</h3>
+            <br/><p style="text-align: center; margin-left: 150px; margin-right: 150px;">It helps high school students from anywhere who are looking for a easy and effective way to 
+                    promote themselves to the university communities. It also helps university recruiters who 
+                    are looking for talented students with high academic standards and/or athletic abilities. 
+                    The state of the current college admission process is still an antiquated way of applying for
+                    admission (from the students' perspective) and recruiting for qualified, talented, and 
+                    interested students (from the recruiters' perspective). Imagine how a more competitive 
+                    landscape (it is getting that way!) where a high student can simply go to LinkedU and 
+                    provide all the necessary info (e.g., ACT, SAT, PSAT/NMSQT scores, an essay of choice, 
+                    universities of choice, majors of choice, mixtapes of activities (e.g., basketball moves, 
+                    musical performances, etc.), etc.) and let the process takes its course. Now, the recruiters 
+                    can go to LinkedU and scour the candidates for ones who match their targets. They can then 
+                    attempt to woo the students with scholarships, promotional materials, etc.</p></center>
+        <br/>
+<br/><br/><br/>
+        </div>
+        <div id="loginModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width:92%">
+                    <div class="modal-body">
+
+                        <h3 style="text-align: center; color: #31708f;"><b>Welcome to LinkedU</b></h3>
+                        <br/> 
+                        <div class="panel panel-info" >
+                            <div class="panel-heading">
+                                <div class="panel-title">Sign In</div>
+                            </div>     
+                            <div class="panel-body" >
+                                <h:form id="login" class="form-horizontal" role="form">
+                                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <p:inputText class="form-text" styleClass="form-control" id="userName" placeholder="username" required="true"
+                                                     value="#{loginController.userModel.username}"></p:inputText>                                        
+                                    </div>
+
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <p:password id ="password" styleClass="form-control" value="#{loginController.userModel.password}" placeholder="password">
+                                        </p:password> 
+                                    </div>
+
+                                    <div style="margin-top:10px" class="form-group">
+                                        <div class="col-sm-12">
+                                            <h:commandButton class="btn btn-primary" value="SignIn" action="#{loginController.login()}"></h:commandButton> 
+
+                                            <p><h:outputText value="#{loginController.loginStatus}" id="loginStatus"/></p>
+                                        </div>
+                                    </div>
+                                </h:form>
+                                <h:form>
+                                    <div class="form-group">
+                                        <div class="col-md-12 control">
+                                            <div class="col-md-8" style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                                Don't have an Account! 
+                                                <a href="signUp.xhtml">
+                                                    SignUp Here
+                                                </a>
+                                            </div>
+
+                                            <div class="col-md-4" style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+
+                                                <a href="signUp.xhtml">
+                                                    <u> Forgot Password? </u>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </h:form>
+                            </div>                     
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+
+        <!--footer-->
+        <div class="bottom-social-agileits-w3ls">
+            <h2 class="footer-logo"><a href="#">LinkedU <span>Education is important to our life!</span></a></h2>
+            <p style="margin-left:35%">© 2018 LinkedU . All Rights Reserved </p>
+            <div class="col-md-4 social-icons-wthree" style="float:right; margin-right:-10%; margin-top:-3%;">
+                <h6>Connect with us</h6>
+                <div class="bottom-left">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="LinkedU is Awesome..!!" data-size="large">Tweet</a>
+                </div>
+            </div>
+        </div>
+        <!--/footer -->
+
+        <script>
+            $(document).ready(function () {
+                $("#slider4").responsiveSlides({
+                    auto: true,
+                    pager: true,
+                    nav: true,
+                    speed: 1000,
+                    namespace: "callbacks",
+                    before: function () {
+                        $('.events').append("<li>before event fired.</li>");
+                    },
+                    after: function () {
+                        $('.events').append("<li>after event fired.</li>");
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            !function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');
+        </script>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,491 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 9, 2018, 8:21:48 PM
+    Author     : Richard
+*/
+
+/**
+{
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #e9ebee;
+}*/
+
+body{
+    background-color: #e9ebee;
+}
+
+h1{
+    margin-top: 0px;
+}
+.grid
+{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns:  5% minmax(200px, 20%) minmax(300px, 50%) 20% 5%;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas:
+    "head       head       head     head        head"
+    "....       sidebar    feed     sidebar2    ...."
+    "foot       foot       foot     foot        foot";
+}
+
+header
+{ 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    z-index: 1;
+    grid-area: head;
+    background-color: #d9edf7;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    color:#31708F;
+    text-align: center;
+}
+
+header > .searchbar
+{
+    text-align: center;
+    padding: 5px;
+    grid-column: 8 / -1;
+    box-shadow: none;
+    
+}
+
+.searchInput
+{
+    width: 65%;
+}
+
+feed
+{
+    grid-area: feed;
+}
+
+aside
+{
+    text-align: center;
+    grid-area: sidebar;
+    background-color: #aaaaa;
+    margin-left: -20%;
+    padding: 0px;
+/*    position: fixed;*/
+}
+
+#sidebar
+{
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+aside2
+{
+    text-align: center;
+    grid-area: sidebar2;
+    background-color: #aaaaa;
+/*    position: fixed;*/
+    
+}
+
+footer
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    grid-area: foot;
+    background-color: #d9edf7;
+}
+
+/*--------------------------------------------------------------------*/
+
+.feed-grid
+{
+    padding: 0px;
+    display: grid;
+    grid-row-gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+/*----------------------------------------------------------------------*/
+.feed-header
+{
+    grid-column: 1 / -1;
+    background-color: #a0cade;
+    padding: 5px;
+}
+.status
+{
+    grid-column: 100px;
+    background-color:  #a0cade;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: grid;
+    padding: 5px;
+    margin: 0px;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;  
+    grid-template-rows: auto auto auto;
+}
+
+.title
+{
+    grid-column: 1 / -1;
+}
+
+.title > h1
+{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+}
+
+.content
+{
+    grid-column: 1 / -1;
+}
+
+.content > input
+{
+    width: 98.5%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.post-button
+{
+    grid-column: 1 / -1;
+    margin-bottom: 2px;
+}
+
+.post-button > input[type=submit]
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.post-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+
+.like-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+.comment-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+/*------------------------------------------------------------*/
+
+.post
+{
+/*    align-self: start;*/
+    padding: 5px;
+    background-color: #a0cade;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-suto-rows: minmax(40px, auto);   
+}
+
+.post-wrapper
+{
+    opacity: .8;
+    grid-column: 1 / -1;
+    margin: 0px;
+    padding: 5px;
+    background-color: #31708F;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.post-wrapper > .profilepic-post
+{ 
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px;
+}
+
+.post-content
+{
+    grid-column: span 3;
+    background-color: #31708F;
+    opacity: .5;
+    font-size: 20px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.post > .timestamp
+{
+    text-align: right;
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.like-button
+{
+    grid-column: span 2;
+    margin-bottom: 2px;
+}
+
+.like-button > input
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.2s ease-out;
+}
+
+.like-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+
+.view-button
+{
+    grid-column: span 2;
+    /* margin-right: 5px; */
+}
+
+.view-button > input
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.2s ease-out;
+}
+
+.view-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+/*-----------------------------------------------------------------*/
+ 
+.comment
+{
+    margin: 0px;
+    grid-column: 1 / -1;
+    background-color: #31708F;
+    opacity: .5;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.filler-grid
+{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.4s;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    margin: 0px;
+    padding: 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    grid-column: auto;
+    border-radius: 15px;
+    font-size: 15px  
+}
+
+.datatable
+{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.comment-grid
+{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    justify-items: start;
+}
+
+.comment-input-grid
+{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.comment-content
+{
+    grid-column: auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px     
+}
+
+.input-comment
+{
+    grid-column: span 5;
+    width: 96%;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 2px;
+}
+
+.comment-button > input
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.2s ease-out;
+}
+
+.comment-button > input[type=submit]:hover
+{
+    background-color: #31708F;
+}
+/*-----------------------------------------------------------------*/
+input[type=submit]
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+}
+
+input
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.sidebar-buttons
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+.sidebarbutton{
+       
+    background-color: #31708F;
+    border: solid 1px black;
+    border-radius: 50%;
+    color: white;
+    padding: 7px 17px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.sidebarbutton:hover {
+    background-color: white; 
+    color: #31708F;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.profilepic
+{
+    margin: 0px;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.sidebar-2
+{
+    padding: 10px;
+    margin: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.featured
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.upload-button
+{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.2s ease-out;
+}
+
+.upload-button:hover
+{
+    background-color: #666666
+}
+
+.choose
+{
+    grid-column: 1 / -1;
+}
+
+.fileupload_buttonbar
+{
+    background: transparent none;
+    border: none;
+}
+
+.fileupload-content
+{
+    display: none;
+}
+
+.ui-fileupload .fileinput-button
+{
+    grid-column: 1 / -1;
+}

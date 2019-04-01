@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </h:head>
+    <h:body>
+        
+    <h:body style="background-color: #FAF0E6">
+        <div class="container">
+            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+                <h3 style="text-align: center; color: #31708f;"><b>Welcome to</b>
+                        <b style = "font-size: 40px;">Linked</b><b style="font-size: 40px; background-color:#B0E0E6;">U</b></h3>
+                    <br/><br/> 
+                    <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <h:form id="loginform" class="form-horizontal" role="form">
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <p:inputText class="form-text" styleClass="form-control" id="userName" placeholder="username"
+                                             value="#{loginController.userModel.username}"></p:inputText>                                        
+                            </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <p:password id ="password" styleClass="form-control" value="#{loginController.userModel.password}" placeholder="password">
+                                </p:password> 
+                            </div>
+
+                            <div style="margin-top:10px" class="form-group">
+                                <div class="col-sm-12">
+                                    <h:commandButton id="submitID" class="btn btn-primary" value="Log in" action="#{loginController.login()}"/>&nbsp;
+                                    <h:commandButton id="signup" class="btn btn-primary" value="SignUp" action="signUp.xhtml"/>
+                                    <p><h:outputText value="#{loginController.loginStatus}" id="loginStatus"/></p>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                        Forgot Password? 
+                                        <a href="forgotPassword.xhtml?redirect=true">
+                                            Click Here
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </h:form>     
+
+
+
+                    </div>                     
+                </div>  
+            </div>
+        </div>
+
+
+
+    </h:body>
+    </h:body>
+</html>
